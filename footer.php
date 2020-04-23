@@ -15,5 +15,4 @@
     </div><!-- container-fluid -->
 
 </footer>
-
 <?php wp_footer(); ?>

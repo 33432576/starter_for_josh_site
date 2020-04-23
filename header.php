@@ -51,7 +51,7 @@
 
   </head>
   <body>
-      <header class="container-fluid herobg"> 
+      <header class="container-fluid herobg"<?php if ( get_field(' headerbackgroundimage ') ) { echo 'style="background: url(' . get_field(' headerbackgroundimage ') . ')"'; } ?>> 
       <nav class="navbar">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -64,11 +64,14 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
-      </ul>
+  <?php wp_nav_menu(array(
+        'menu' => 'Top menu',
+        'items_wrap'=>'%3$s',
+        'container' => false,
+        'list_item_class' => "nav-item",
+        'link_class' => "nav-link",
+        )); ?>
+</ul>
     </div>
   </div>
 </nav>
@@ -76,7 +79,7 @@
 <!--div for main image that stretches to the end of the page-->
 
         <div class="container"><!-- div that holds the content in the middle of the page-->
-            <h1> Games Design For the future </h1><!--  the main tag line-->
+              <h1><?php the_field('maintagline'); ?></h1><!--  the main tag line-->
         </div><!-- container-->
 
       </header>
